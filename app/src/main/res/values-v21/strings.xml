@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_registration_form">User Registration Form</string>
+    <string name="profil_compte">Profil Compte</string>
+    <string name="login_page_ragister">Already Register | Log In Here</string>
+    <string name="profil_chercheur">Chercheur d\'emploi</string>
+    <string name="profil_recruteur">Recruteur</string>
+</resources>
