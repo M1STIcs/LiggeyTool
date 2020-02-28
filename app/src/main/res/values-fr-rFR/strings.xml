@@ -27,7 +27,7 @@
     <string name="invalid_password">Veuillez saisir un mot de passe !</string>
     <string name="login_failed">"Echec Connexion"</string>
     <string name="connection">Connexion</string>
-    <string name="login">Identifiant</string>
+    <string name="login">Se connecter</string>
     <string name="password">Mot de passe</string>
     <string name="connect">Connecter</string>
 
@@ -43,7 +43,7 @@
     <string name="save">Enregistrer</string>
     <string name="cancel">Annuler</string>
 
-    <string name="register">Inscription</string>
+    <string name="register">S\'inscrire</string>
     <string name="first_name">Prenom</string>
     <string name="last_name">Nom</string>
     <string name="degree">Diplome</string>
@@ -61,11 +61,13 @@
     <string name="bachelor">Licence</string>
     <string name="olevel">Baccalauréat</string>
     <string name="title_activity_university">IPD sur carte</string>
-    <string name="title_registration_form">Bienvenue sur LiggeyTool.</string>
-    <string name="title2_registration_form">L\'application pour les recruteurs et chercheurs d\'emploi dans le domaine de l\'agriculture.</string>
+    <string name="title_registration_form">Bienvenue sur LiggeyTool !</string>
+    <string name="title2_registration_form">Le 1er choix des recruteurs et chercheurs d\'emploi dans le domaine de l\'agriculture.</string>
     <string name="profil_compte">Profil Compte</string>
-    <string name="login_page_ragister">Déjà inscrit | Se connecter ici</string>
+    <string name="login_page_ragister">Déjà inscrit | Connectez-vous ici</string>
     <string name="profil_chercheur">Candidat</string>
     <string name="profil_recruteur">Recruteur</string>
+    <string name="register_page_login">Pas encore inscrit ? | Inscrivez-vous ici</string>
+    <string name="annonces">Annonces</string>
 
 </resources>

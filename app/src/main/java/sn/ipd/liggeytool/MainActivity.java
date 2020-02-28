@@ -1,5 +1,6 @@
 package sn.ipd.liggeytool;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     String F_Name_Holder, L_Name_Holder, Email_Holder, Password_Holder, T_Compte_Holder;
     String finalResult;
     // String HttpURL = "https://localhost/liggeytool/Registration.php";
+    //songer à changer l'adresse ci-dessous avec l'adresse ip
     String HttpURL = "http://192.168.43.139/liggeytool/Registration.php";
     Boolean CheckEditText;
     ProgressDialog progressDialog;
@@ -41,15 +43,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Assign Id'S
-        First_Name = (EditText) findViewById(R.id.editTextF_Name);
-        Last_Name = (EditText) findViewById(R.id.editTextL_Name);
-        Email = (EditText) findViewById(R.id.editTextEmail);
-        Password = (EditText) findViewById(R.id.editTextPassword);
-        Type_Compte = (RadioGroup) findViewById(R.id.radioGroupT_Compte);
+        First_Name = findViewById(R.id.editTextF_Name);
+        Last_Name = findViewById(R.id.editTextL_Name);
+        Email = findViewById(R.id.editTextEmail);
+        Password = findViewById(R.id.editTextPassword);
+        Type_Compte = findViewById(R.id.radioGroupT_Compte);
 
-
-        register = (Button) findViewById(R.id.buttonRegister);
-        log_in = (Button) findViewById(R.id.buttonLogin);
+        register = findViewById(R.id.buttonRegister);
+        log_in = findViewById(R.id.buttonLogin);
 
         //Adding Click Listener on button.
         register.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 if (CheckEditText) {
 
                     // If EditText is not empty and CheckEditText = True then this block will execute.
-                    Type_Compte_Choisi=(RadioButton)findViewById(Type_Compte.getCheckedRadioButtonId());
+                    Type_Compte_Choisi= findViewById(Type_Compte.getCheckedRadioButtonId());
                     T_Compte_Holder=(String)Type_Compte_Choisi.getText();
 
                     Log.i(TAG,T_Compte_Holder);
@@ -80,15 +81,16 @@ public class MainActivity extends AppCompatActivity {
         log_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //Si l'utilisateur a déjà un compte, redirection vers page Login
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
-
+                Log.i(TAG,"Ouverture de la page de connexion LoginActivity");
             }
         });
 
     }
-
+    /*Vérification si les champs sont vides ou pas.
+    Le riadiobutton a une valeur par défaut donc, il fait pas partie de la vérification*/
     public void CheckEditTextIsEmptyOrNot() {
 
         F_Name_Holder = First_Name.getText().toString();
@@ -96,25 +98,21 @@ public class MainActivity extends AppCompatActivity {
         Email_Holder = Email.getText().toString();
         Password_Holder = Password.getText().toString();
 
-        if (TextUtils.isEmpty(F_Name_Holder) || TextUtils.isEmpty(L_Name_Holder) || TextUtils.isEmpty(Email_Holder) || TextUtils.isEmpty(Password_Holder)) {
-
-            CheckEditText = false;
-
-        } else {
-
-            CheckEditText = true;
-        }
+        CheckEditText = !TextUtils.isEmpty(F_Name_Holder) && !TextUtils.isEmpty(L_Name_Holder) && !TextUtils.isEmpty(Email_Holder) && !TextUtils.isEmpty(Password_Holder);
 
     }
 
     public void UserRegisterFunction(final String F_Name, final String L_Name, final String email, final String password, final String T_Compte) {
 
+        @SuppressLint("StaticFieldLeak")
         class UserRegisterFunctionClass extends AsyncTask<String, Void, String> {
 
             protected void onPreExecute() {
                 super.onPreExecute();
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(register.getWindowToken(), 0);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(register.getWindowToken(), 0);
+                }
 
                 progressDialog = ProgressDialog.show(MainActivity.this, "Chargement des données", null, true, true);
             }
@@ -135,18 +133,18 @@ public class MainActivity extends AppCompatActivity {
                     Thread.sleep(5000);
                 } catch (InterruptedException e) {
                 }*/
-                toast.setText("Vous allez être rediriger vers la page de connexion !");
 
                 //Si l'inscription est réussie Alors :
-                if (httpResponseMsg.equals("Inscription réussie !")) {
-
+                if (httpResponseMsg.equalsIgnoreCase("Inscription réussie !")) {
+                    toast.setText("Vous allez être rediriger vers la page de connexion !");
+                    finish();
                     //Redirection vers la page Login
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
                     Log.i(TAG, "Redirection vers la page Login");
                 }
             }
-
+            // Ajout des données dans un hashMap
             @Override
             protected String doInBackground(String... params) {
                 hashMap.put("f_name", params[0]);
