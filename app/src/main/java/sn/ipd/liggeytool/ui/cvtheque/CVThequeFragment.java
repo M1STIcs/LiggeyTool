@@ -1,4 +1,4 @@
-package sn.ipd.liggeytool.ui.send;
+package sn.ipd.liggeytool.ui.cvtheque;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,17 +12,17 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import sn.ipd.liggeytool.R;
 
-public class SendFragment extends Fragment {
+public class CVThequeFragment extends Fragment {
 
-    private SendViewModel sendViewModel;
+    private CVThequeViewModel CVThequeViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        sendViewModel =
-                ViewModelProviders.of(this).get(SendViewModel.class);
+        CVThequeViewModel =
+                ViewModelProviders.of(this).get(CVThequeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_send, container, false);
         final TextView textView = root.findViewById(R.id.text_send);
-        sendViewModel.getText().observe(this, new Observer<String>() {
+        CVThequeViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

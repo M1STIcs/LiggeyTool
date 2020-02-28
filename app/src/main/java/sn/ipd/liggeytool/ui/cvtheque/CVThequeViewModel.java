@@ -1,14 +1,14 @@
-package sn.ipd.liggeytool.ui.send;
+package sn.ipd.liggeytool.ui.cvtheque;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SendViewModel extends ViewModel {
+public class CVThequeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SendViewModel() {
+    public CVThequeViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is send fragment");
     }

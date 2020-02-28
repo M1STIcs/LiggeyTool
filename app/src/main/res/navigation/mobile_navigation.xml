@@ -13,20 +13,20 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="sn.ipd.liggeytool.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="sn.ipd.liggeytool.ui.myprofile.MyProfileFragment"
+        android:label="@string/menu_myprofile"
+        tools:layout="@layout/fragment_myprofile" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="sn.ipd.liggeytool.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:name="sn.ipd.liggeytool.ui.myjobs.MyJobsFragment"
+        android:label="@string/menu_myjoboffers"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/nav_tools"
-        android:name="sn.ipd.liggeytool.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
+        android:name="sn.ipd.liggeytool.ui.mycv.MyCVFragment"
+        android:label="@string/menu_mycv"
         tools:layout="@layout/fragment_tools" />
 
     <fragment
@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="sn.ipd.liggeytool.ui.send.SendFragment"
-        android:label="@string/menu_send"
+        android:name="sn.ipd.liggeytool.ui.cvtheque.CVThequeFragment"
+        android:label="@string/menu_cvtheque"
         tools:layout="@layout/fragment_send" />
 </navigation>

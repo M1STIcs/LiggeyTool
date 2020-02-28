@@ -7,4 +7,5 @@
     <string name="profil_recruteur">Recruteur</string>
     <string name="register_page_login">Pas encore inscrit | Inscrivez-vous ici</string>
     <string name="annonces">Annonces</string>
+    <string name="search">Rechercher</string>
 </resources>

@@ -8,12 +8,12 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
+    <string name="menu_home">Accueil</string>
+    <string name="menu_myprofile">Mon profil</string>
+    <string name="menu_myjoboffers">Mes annonces</string>
+    <string name="menu_mycv">Mon CV</string>
+    <string name="menu_share">Partager</string>
+    <string name="menu_cvtheque">CVThèque</string>
 
     <string name="title_activity_login">Connexion sur IPDapp</string>
     <string name="prompt_email">E-mail</string>
@@ -69,5 +69,7 @@
     <string name="profil_recruteur">Recruteur</string>
     <string name="register_page_login">Pas encore inscrit ? | Inscrivez-vous ici</string>
     <string name="annonces">Annonces</string>
+    <string name="search">Rechercher</string>
+    <string name="menu_favorites">Favoris</string>
 
 </resources>

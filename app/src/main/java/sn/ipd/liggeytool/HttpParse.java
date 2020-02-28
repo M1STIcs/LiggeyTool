@@ -1,7 +1,22 @@
 package sn.ipd.liggeytool;
 
+import android.util.Log;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.StatusLine;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -17,12 +32,12 @@ import java.util.Map;
 public class HttpParse {
 
     String FinalHttpData = "";
-    String Result ;
-    BufferedWriter bufferedWriter ;
-    OutputStream outputStream ;
-    BufferedReader bufferedReader ;
+    String Result;
+    BufferedWriter bufferedWriter;
+    OutputStream outputStream;
+    BufferedReader bufferedReader;
     StringBuilder stringBuilder = new StringBuilder();
-    URL url;
+    static URL url;
 
     public String postRequest(HashMap<String, String> Data, String HttpUrlHolder) {
 
@@ -63,8 +78,7 @@ public class HttpParse {
                         )
                 );
                 FinalHttpData = bufferedReader.readLine();
-            }
-            else {
+            } else {
                 FinalHttpData = "Serveur non accéssible !";
             }
         } catch (Exception e) {
@@ -74,9 +88,9 @@ public class HttpParse {
         return FinalHttpData;
     }
 
-    public String FinalDataParse(HashMap<String,String> hashMap2) throws UnsupportedEncodingException {
+    public String FinalDataParse(HashMap<String, String> hashMap2) throws UnsupportedEncodingException {
 
-        for(Map.Entry<String,String> map_entry : hashMap2.entrySet()){
+        for (Map.Entry<String, String> map_entry : hashMap2.entrySet()) {
 
             stringBuilder.append("&");
 
@@ -90,6 +104,6 @@ public class HttpParse {
 
         Result = stringBuilder.toString();
 
-        return Result ;
+        return Result;
     }
 }

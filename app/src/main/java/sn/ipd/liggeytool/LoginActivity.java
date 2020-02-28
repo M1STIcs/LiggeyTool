@@ -101,14 +101,28 @@ public class LoginActivity extends AppCompatActivity {
 
                 progressDialog.dismiss();
                 //Si la connexion a réussi Alors :
-                if (httpResponseMsg.equalsIgnoreCase("Connexion réussie !")) {
+
+
+                if (httpResponseMsg.contains("Connexion réussie !")) {
 
                     finish();
                     //Nous entrons dans l'application, Bienvenue !
-                    Intent intent = new Intent(LoginActivity.this, testActivity.class);
-                    //Ajout du mail de l'utilisateur en extra
-                    intent.putExtra(UserEmail, email);
-                    startActivity(intent);
+                    Intent intent;
+                    //Si le type de compte est Recruteur
+                    if (httpResponseMsg.contains("Recruteur")) {
+                        intent = new Intent(LoginActivity.this, RecruiterActivity.class);
+                        startActivity(intent);
+                        //Ajout du mail de l'utilisateur en extra
+                       // intent.putExtra(UserEmail, email);
+                    }
+                    else {
+                        intent = new Intent(LoginActivity.this, JobSeekerActivity.class);
+
+                        startActivity(intent);
+                    }
+//Si le type de compte est Candidat
+
+
 
                 } else {
 
@@ -125,7 +139,7 @@ public class LoginActivity extends AppCompatActivity {
                 hashMap.put("password", params[1]);
 
                 finalResult = httpParse.postRequest(hashMap, HttpURL);
-
+                System.out.println(finalResult);
                 return finalResult;
             }
         }
