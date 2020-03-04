@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.mycv.MyCVFragment"
+    android:background="@color/white">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autofillHints="@string/user_name"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@android:color/transparent"
+                android:text="@string/user_name"
+                android:textColor="@drawable/edit_text_selector"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/user_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@drawable/edit_text_selector"
+                android:background="@android:color/transparent"
+                android:textSize="15sp"
+                android:text="@string/user_age" />
+
+            <EditText
+                android:id="@+id/user_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@drawable/edit_text_selector"
+                android:background="@android:color/transparent"
+                android:textSize="15sp"
+                android:text="@string/user_address" />
+
+            <EditText
+                android:id="@+id/user_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@drawable/edit_text_selector"
+                android:background="@android:color/transparent"
+                android:textSize="15sp"
+                android:text="@string/user_phone" />
+
+            <EditText
+                android:id="@+id/user_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@drawable/edit_text_selector"
+                android:background="@android:color/transparent"
+                android:textSize="15sp"
+                android:text="@string/user_email" />
+
+            <Button
+                android:id="@+id/editer_cv"
+                android:layout_width="117dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:background="@color/brown"
+                android:text="Editer CV"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="DOMAINES DE COMPETENCES"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/customborder"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_competences"
+            android:background="@android:color/transparent"
+            android:textSize="15sp"
+            android:textColor="@drawable/edit_text_selector"
+            android:text="Compétences"
+            android:justificationMode="inter_word"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="EXPERIENCES PROFESSIONNELLES"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/customborder"
+        >
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_experiences"
+            android:background="@android:color/transparent"
+            android:textSize="15sp"
+            android:textColor="@drawable/edit_text_selector"
+            android:text="Expériences"
+            android:justificationMode="inter_word"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="FORMATION / DIPLOMES"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/customborder"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_formation"
+            android:background="@android:color/transparent"
+            android:textSize="15sp"
+            android:textColor="@drawable/edit_text_selector"
+            android:text="Formation"
+            android:justificationMode="inter_word"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="LANGUES"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/customborder"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/user_langues"
+            android:background="@android:color/transparent"
+            android:textSize="15sp"
+            android:textColor="@drawable/edit_text_selector"
+            android:text="Langue et Niveau"
+            android:justificationMode="inter_word"
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="LOISIRS / CENTRES D'INTERET"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/customborder"
+        >
+        <EditText
+            android:id="@+id/user_loisirs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:textColor="@drawable/edit_text_selector"
+            android:textSize="15sp"
+            android:text="Loisirs "
+            />
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>

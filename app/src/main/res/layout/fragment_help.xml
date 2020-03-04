@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.help.HelpFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tvHelp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="Hello"
+        android:textStyle="bold"/>
+    <!-- 1 | Add TabLayout to handle tabs -->
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        app:tabIndicatorColor="@color/colorPrimary"
+        app:tabTextColor="@color/colorPrimary"
+        app:tabSelectedTextColor="#fff"/>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </androidx.viewpager.widget.ViewPager>
+
+</LinearLayout>

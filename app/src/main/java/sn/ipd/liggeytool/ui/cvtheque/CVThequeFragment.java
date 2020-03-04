@@ -20,7 +20,7 @@ public class CVThequeFragment extends Fragment {
             ViewGroup container, Bundle savedInstanceState) {
         CVThequeViewModel =
                 ViewModelProviders.of(this).get(CVThequeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_send, container, false);
+        View root = inflater.inflate(R.layout.fragment_cvtheque, container, false);
         final TextView textView = root.findViewById(R.id.text_send);
         CVThequeViewModel.getText().observe(this, new Observer<String>() {
             @Override

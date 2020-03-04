@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Assign Id'S
+          //Assign Id'S
         First_Name = findViewById(R.id.editTextF_Name);
         Last_Name = findViewById(R.id.editTextL_Name);
         Email = findViewById(R.id.editTextEmail);

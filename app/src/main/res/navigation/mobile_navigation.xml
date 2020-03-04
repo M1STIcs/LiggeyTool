@@ -12,32 +12,47 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_profile"
         android:name="sn.ipd.liggeytool.ui.myprofile.MyProfileFragment"
         android:label="@string/menu_myprofile"
         tools:layout="@layout/fragment_myprofile" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_myjobs"
         android:name="sn.ipd.liggeytool.ui.myjobs.MyJobsFragment"
-        android:label="@string/menu_myjoboffers"
-        tools:layout="@layout/fragment_slideshow" />
+        android:label="@string/menu_myjobs"
+        tools:layout="@layout/fragment_myjobs" />
 
     <fragment
-        android:id="@+id/nav_tools"
+        android:id="@+id/nav_mycv"
         android:name="sn.ipd.liggeytool.ui.mycv.MyCVFragment"
         android:label="@string/menu_mycv"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_mycv" />
 
+    <fragment
+        android:id="@+id/nav_favorites"
+        android:name="sn.ipd.liggeytool.ui.favorites.favoritesFragment"
+        android:label="@string/menu_favorites"
+        tools:layout="@layout/fragment_favorites" />
+
+    <fragment
+        android:id="@+id/nav_cvtheque"
+        android:name="sn.ipd.liggeytool.ui.cvtheque.CVThequeFragment"
+        android:label="@string/menu_cvtheque"
+        tools:layout="@layout/fragment_cvtheque" />
     <fragment
         android:id="@+id/nav_share"
         android:name="sn.ipd.liggeytool.ui.share.ShareFragment"
         android:label="@string/menu_share"
         tools:layout="@layout/fragment_share" />
-
     <fragment
-        android:id="@+id/nav_send"
-        android:name="sn.ipd.liggeytool.ui.cvtheque.CVThequeFragment"
-        android:label="@string/menu_cvtheque"
-        tools:layout="@layout/fragment_send" />
+        android:id="@+id/nav_help"
+        android:name="sn.ipd.liggeytool.ui.help.HelpFragment"
+        android:label="@string/menu_help"
+        tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="sn.ipd.liggeytool.ui.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
 </navigation>

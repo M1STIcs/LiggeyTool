@@ -111,13 +111,14 @@ public class LoginActivity extends AppCompatActivity {
                     //Si le type de compte est Recruteur
                     if (httpResponseMsg.contains("Recruteur")) {
                         intent = new Intent(LoginActivity.this, RecruiterActivity.class);
+                        intent.putExtra("USER_EMAIL",EmailHolder);
                         startActivity(intent);
                         //Ajout du mail de l'utilisateur en extra
                        // intent.putExtra(UserEmail, email);
                     }
                     else {
                         intent = new Intent(LoginActivity.this, JobSeekerActivity.class);
-
+                        intent.putExtra("USER_EMAIL",EmailHolder);
                         startActivity(intent);
                     }
 //Si le type de compte est Candidat

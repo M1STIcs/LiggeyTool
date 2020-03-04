@@ -38,37 +38,11 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-       // final TextView textView = root.findViewById(R.id.text_home);
 
-
-        /*homeViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });*/
         listView = root.findViewById(R.id.listView);
         editText=root.findViewById(R.id.editTextSearch);
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-                //after the change calling the method and passing the search input
-              //  filter(editable.toString());
-            }
-        });
 
         getJSON("http://192.168.43.139/liggeytool/AllJobs.php");
 
@@ -102,18 +76,16 @@ public class HomeFragment extends Fragment {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
                 try {
                     loadIntoListView(s);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
-
             //in this method we are fetching the json string
             @Override
             protected String doInBackground(Void... voids) {
-
 
                 try {
                     //creating a URL
@@ -143,10 +115,8 @@ public class HomeFragment extends Fragment {
                 } catch (Exception e) {
                     return null;
                 }
-
             }
         }
-
         //creating asynctask object and executing it
         GetJSON getJSON = new GetJSON();
         getJSON.execute();
@@ -155,23 +125,17 @@ public class HomeFragment extends Fragment {
     private void loadIntoListView(String json) throws JSONException {
         //creating a json array from the json string
         JSONArray jsonArray = new JSONArray(json);
-
         //creating a string array for listview
         String[] joboffer = new String[jsonArray.length()];
-
         //looping through all the elements in json array
         for (int i = 0; i < jsonArray.length(); i++) {
-
             //getting json object from the json array
             JSONObject obj = jsonArray.getJSONObject(i);
-
             //getting the name from the json object and putting it inside string array
             joboffer[i] = obj.getString("titre");
         }
-
         //the array adapter to load data into list
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, joboffer);
-
         //attaching adapter to listview
         listView.setAdapter(arrayAdapter);
     }

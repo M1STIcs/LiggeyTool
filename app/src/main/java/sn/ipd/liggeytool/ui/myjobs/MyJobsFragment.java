@@ -20,7 +20,7 @@ public class MyJobsFragment extends Fragment {
             ViewGroup container, Bundle savedInstanceState) {
         myJobsViewModel =
                 ViewModelProviders.of(this).get(MyJobsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
+        View root = inflater.inflate(R.layout.fragment_myjobs, container, false);
         final TextView textView = root.findViewById(R.id.text_slideshow);
         myJobsViewModel.getText().observe(this, new Observer<String>() {
             @Override
