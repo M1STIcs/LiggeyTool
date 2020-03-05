@@ -41,16 +41,18 @@ import sn.ipd.liggeytool.RecruiterActivity;
 import sn.ipd.liggeytool.ui.home.HomeFragment;
 
 import static android.content.ContentValues.TAG;
+import static sn.ipd.liggeytool.LoginActivity.USER_EMAIL;
+import static sn.ipd.liggeytool.SplashActivity.adresseIP;
 
 public class MyCVFragment extends Fragment {
     HttpParse2 httpParse = new HttpParse2();
     ProgressDialog pDialog;
 
 
-    String HttpURLUpdate = "http://192.168.43.139/liggeytool/UpdateCV.php";
+    String HttpURLUpdate = "http://"+adresseIP+"/liggeytool/UpdateCV.php";
     // Http Url For Filter Student Data from Id Sent from previous activity.
 
-    String HttpURLSelect = "http://192.168.43.139/liggeytool/SelectCV.php";
+    String HttpURLSelect = "http://"+adresseIP+"/liggeytool/SelectCV.php";
 
     String finalResult ;
     HashMap<String,String> hashMap = new HashMap<>();
@@ -63,10 +65,7 @@ public class MyCVFragment extends Fragment {
     EditText userCompetences, userExperiences,userFormation,userLangues,userLoisirs;
     String s_userName, s_userAge,s_userAddress,s_userEmail, s_userPhone;
     String s_userCompetences, s_userExperiences,s_userFormation,s_userLangues,s_userLoisirs;
-    Button chargerPhoto, editerCV;
-    Button UpdateButton, DeleteButton;
-    String TempItem;
-    ProgressDialog progressDialog2;
+    Button editerCV;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -85,13 +84,9 @@ public class MyCVFragment extends Fragment {
         userLoisirs= root.findViewById(R.id.user_loisirs);
         editerCV=root.findViewById(R.id.editer_cv);
 
-        //Receiving the ListView Clicked item value send by previous activity.
-        TempItem = getActivity().getIntent().getStringExtra("USER_EMAIL");
-        System.out.println(TempItem);
-        //Calling method to filter Student Record and open selected record.
-        HttpWebCall(TempItem);
+        HttpWebCall(USER_EMAIL);
 
-        userEmail.setText(TempItem);
+        userEmail.setText(USER_EMAIL);
         userName.setEnabled(false);
         userEmail.setEnabled(false);
         DesactiverChamps();

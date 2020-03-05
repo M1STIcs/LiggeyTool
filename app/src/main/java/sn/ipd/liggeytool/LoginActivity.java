@@ -15,9 +15,11 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 
+import static sn.ipd.liggeytool.SplashActivity.adresseIP;
+
 public class LoginActivity extends AppCompatActivity {
 
-    public static final String UserEmail = "";
+    public static String USER_EMAIL = "";
     EditText Email, Password;
     private static final String TAG = "LoginActivity";
     Button register, log_in;
@@ -25,7 +27,8 @@ public class LoginActivity extends AppCompatActivity {
     String finalResult;
     //String HttpURL = "https://localhost/liggeytool/Login.php";
     //songer à changer l'adresse ci-dessous avec l'adresse ip
-    String HttpURL = "http://192.168.43.139/liggeytool/Login.php";
+   // String HttpURL = "http://192.168.43.139/liggeytool/Login.php";
+    String HttpURL = "http://"+adresseIP+"/liggeytool/Login.php";
     Boolean CheckEditText;
     ProgressDialog progressDialog;
     HashMap<String, String> hashMap = new HashMap<>();
@@ -104,7 +107,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 if (httpResponseMsg.contains("Connexion réussie !")) {
-
+                    USER_EMAIL=EmailHolder;
                     finish();
                     //Nous entrons dans l'application, Bienvenue !
                     Intent intent;
@@ -113,6 +116,7 @@ public class LoginActivity extends AppCompatActivity {
                         intent = new Intent(LoginActivity.this, RecruiterActivity.class);
                         intent.putExtra("USER_EMAIL",EmailHolder);
                         startActivity(intent);
+
                         //Ajout du mail de l'utilisateur en extra
                        // intent.putExtra(UserEmail, email);
                     }

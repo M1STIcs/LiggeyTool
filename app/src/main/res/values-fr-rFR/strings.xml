@@ -3,12 +3,12 @@
     <string name="title_activity_dashboard">DashboardActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Le job de vos rêves est ici !</string>
+    <string name="nav_header_title">Le Job de vos rêves est ici !</string>
     <string name="nav_header_subtitle">www.liggeytool.sn</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Paramètres</string>
 
-    <string name="menu_home">Accueil</string>
+    <string name="menu_home">Annonces Disponibles</string>
     <string name="menu_myprofile">Mon profil</string>
     <string name="menu_myjobs">Mes annonces</string>
     <string name="menu_mycv">Mon CV</string>
@@ -70,7 +70,7 @@
     <string name="register_page_login">Pas encore inscrit ? | Inscrivez-vous ici</string>
     <string name="annonces">Annonces</string>
     <string name="search">Rechercher</string>
-    <string name="menu_favorites">Favoris</string>
+    <string name="menu_favorites">Mes Favoris</string>
     <string name="title_activity_job_seeker">JobSeekerActivity</string>
     <string name="title_activity_recruiter">RecruiterActivity</string>
     <string name="menu_help">Aide</string>

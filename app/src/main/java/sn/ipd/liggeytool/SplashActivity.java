@@ -16,6 +16,7 @@ import io.reactivex.disposables.Disposable;
 
 public class SplashActivity extends AppCompatActivity {
     private Subscription subscription;
+    public static String adresseIP="192.168.43.139";
 
     Observer observer = new Observer() {
 

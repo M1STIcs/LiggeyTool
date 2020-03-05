@@ -1,4 +1,4 @@
-package sn.ipd.liggeytool.ui.home;
+package sn.ipd.liggeytool.ui.favorites;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -24,25 +24,27 @@ import java.util.ArrayList;
 
 import sn.ipd.liggeytool.R;
 
+import static sn.ipd.liggeytool.LoginActivity.USER_EMAIL;
 import static sn.ipd.liggeytool.SplashActivity.adresseIP;
 
 
-public class HomeFragment extends Fragment {
+public class FavoritesFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    RecyclerView rvJobs;
-    private static int lastJobId = 0;
+    RecyclerView rvFavorites;
+    private static int lastFavoriteId = 0;
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public HomeFragment() {
+    public FavoritesFragment() {
     }
 
     // TODO: Customize parameter initialization
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,14 +58,14 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_home_list, container, false);
+        View root = inflater.inflate(R.layout.fragment_favorites_list, container, false);
 
         // Lookup the recyclerview in activity layout
-        rvJobs = root.findViewById(R.id.rvJobs);
+        rvFavorites = root.findViewById(R.id.rvFavorites);
         RecyclerView.ItemDecoration itemDecoration = new
                 DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL);
-        rvJobs.addItemDecoration(itemDecoration);
-        getJSON("http://"+adresseIP+"/liggeytool/AllJobs.php");
+        rvFavorites.addItemDecoration(itemDecoration);
+        getJSON("http://"+adresseIP+"/liggeytool/FavJobs.php");
 
         // That's all!
         return root;
@@ -110,7 +112,7 @@ public class HomeFragment extends Fragment {
 
                 try {
                     //creating a URL
-                    URL url = new URL(urlWebService);
+                    URL url = new URL(urlWebService+"?email="+USER_EMAIL);
 
                     //Opening the URL using HttpURLConnection
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -152,25 +154,25 @@ public class HomeFragment extends Fragment {
         int[] jobofferID = new int[jsonArray.length()];
         String[] jobofferTitle = new String[jsonArray.length()];
         //looping through all the elements in json array
-        ArrayList<Job> jobs = new ArrayList<Job>();
+        ArrayList<Favorite> favorites = new ArrayList<Favorite>();
         for (int i = 0; i < jsonArray.length(); i++) {
             //getting json object from the json array
             JSONObject obj = jsonArray.getJSONObject(i);
             //getting the name from the json object and putting it inside string array
             jobofferID[i] = obj.getInt("id");
             jobofferTitle[i] = obj.getString("titre");
-            jobs.add(new Job(jobofferID[i],jobofferTitle[i]));
+            favorites.add(new Favorite(jobofferID[i],jobofferTitle[i]));
         }
         //the array adapter to load data into list
-        // ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, joboffer);
+       // ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, joboffer);
 
         // Initialize contacts
 
         // Create adapter passing in the sample user data
-        JobsAdapter adapter = new JobsAdapter(jobs);
+        FavoritesAdapter adapter = new FavoritesAdapter(favorites);
         // Attach the adapter to the recyclerview to populate items
-        rvJobs.setAdapter(adapter);
+        rvFavorites.setAdapter(adapter);
         // Set layout manager to position the items
-        rvJobs.setLayoutManager(new LinearLayoutManager(getContext()));
+        rvFavorites.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 }
